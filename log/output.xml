@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-03-13T09:39:34.849398" rpa="false" schemaversion="5">
+<suite id="s1" name="TestDemo1" source="D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo1.robot">
+<test id="s1-t1" name="Validate UnSuccesful Login" line="11">
+<kw name="Navigate to URL">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:35.021475" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/loginpagePractise/'.</msg>
+<arg>https://rahulshettyacademy.com/loginpagePractise/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-03-13T09:39:35.021223" elapsed="1.622076"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-13T09:39:36.643578" elapsed="0.027844"/>
+</kw>
+<status status="PASS" start="2025-03-13T09:39:35.020138" elapsed="1.651496"/>
+</kw>
+<kw name="Enter Username And password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:36.672573" level="INFO">Typing text 'rahulshettyacademy' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>rahulshettyacademy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:36.672190" elapsed="0.108666"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:36.781573" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-03-13T09:39:36.813002" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>learning</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:36.781199" elapsed="0.067583"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:36.849283" level="INFO">Clicking element 'xpath://label[2]//span[2]'.</msg>
+<arg>xpath://label[2]//span[2]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:36.849063" elapsed="0.055417"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='modal-body']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-13T09:39:36.904868" elapsed="0.235097"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-13T09:39:42.140886" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-13T09:39:37.140169" elapsed="5.001160"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:42.142012" level="INFO">Clicking element 'xpath://button[@id='okayBtn']'.</msg>
+<arg>xpath://button[@id='okayBtn']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:42.141620" elapsed="0.042052"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:42.184136" level="INFO">Clicking element 'xpath://button[@id='okayBtn']'.</msg>
+<arg>xpath://button[@id='okayBtn']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:42.183891" elapsed="0.036632"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='modal-body']</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-03-13T09:39:42.220724" elapsed="0.225529"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>xpath://input[@id='signInBtn']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-03-13T09:39:42.446452" elapsed="0.278856"/>
+</kw>
+<status status="PASS" start="2025-03-13T09:39:36.671863" elapsed="6.053686"/>
+</kw>
+<kw name="click on submit">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-13T09:39:47.727014" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-13T09:39:42.726308" elapsed="5.000920"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-03-13T09:39:47.727963" level="INFO">Clicking element 'xpath://input[@id='signInBtn']'.</msg>
+<arg>xpath://input[@id='signInBtn']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-13T09:39:47.727658" elapsed="0.052926"/>
+</kw>
+<status status="PASS" start="2025-03-13T09:39:42.725792" elapsed="5.055022"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-13T09:39:47.781120" elapsed="2.162681"/>
+</kw>
+<status status="PASS" start="2025-03-13T09:39:35.019422" elapsed="14.924677"/>
+</test>
+<status status="PASS" start="2025-03-13T09:39:34.861429" elapsed="15.083274"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TestDemo1" id="s1" pass="1" fail="0" skip="0">TestDemo1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
