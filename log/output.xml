@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-15T19:27:29.521113" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-15T19:33:27.508468" rpa="false" schemaversion="5">
 <suite id="s1" name="TestDemo4" source="D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo4.robot">
-<test id="s1-t1" name="Login with user ${username} and password" line="16">
-<status status="FAIL" start="2025-04-15T19:27:30.176415" elapsed="0.000000">Test cannot be empty.</status>
+<test id="s1-t1" name="Login with user ${username} and password ${password}" line="15">
+<status status="FAIL" start="2025-04-15T19:33:28.050636" elapsed="0.004970">Test cannot be empty.</status>
 </test>
 <doc>To validate the Login form</doc>
-<status status="FAIL" start="2025-04-15T19:27:29.551005" elapsed="0.625410"/>
+<status status="FAIL" start="2025-04-15T19:33:27.529158" elapsed="0.527006"/>
 </suite>
 <statistics>
 <total>
@@ -18,10 +18,10 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-15T19:27:30.160735" level="ERROR">[ DataDriver ] Error in robot file:
+<msg time="2025-04-15T19:33:28.036931" level="ERROR">[ DataDriver ] Error in robot file:
   File "D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo4.robot", line 0</msg>
-<msg time="2025-04-15T19:27:30.160735" level="ERROR">In source file:
+<msg time="2025-04-15T19:33:28.036931" level="ERROR">In source file:
   File "D:/Automation/Python Robot/RobotFramework/Resources/data.csv", line 0</msg>
-<msg time="2025-04-15T19:27:30.176415" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ValueError: Unassigned requiered argument detected: ${username}.</msg>
+<msg time="2025-04-15T19:33:28.036931" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ValueError: Unassigned requiered argument detected: ${username}.</msg>
 </errors>
 </robot>

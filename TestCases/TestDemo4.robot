@@ -1,58 +1,39 @@
 *** Settings ***
-Documentation   To validate the Login form
-Library     SeleniumLibrary
-Test Teardown   Close Browser
-Test Template   Validate UnSuccesful Login
-Library     DataDriver  file=D:/Automation/Python Robot/RobotFramework/Resources/data.csv
-
-
+Documentation       To validate the Login form
+Library             SeleniumLibrary
+Library             DataDriver  file=D:/Automation/Python Robot/RobotFramework/Resources/data.csv
+Test Teardown       Close Browser
+Test Template       Validate Unsuccessful Login
 
 *** Variables ***
-${Error_Message_Login}      css:.alert-danger
-
-
+${LOGIN_URL}                https://rahulshettyacademy.com/loginpagePractise/
+${CHROME_DRIVER_PATH}       /Users/rahulshetty/Documents/chromedriver
+${ERROR_MESSAGE_LOCATOR}    css:.alert-danger
+${EXPECTED_ERROR_MESSAGE}   Incorrect username/password.
 
 *** Test Cases ***
-Login with user ${username} and password  ${password}
+Login with user ${username} and password ${password}
 
 *** Keywords ***
-Validate UnSuccesful Login
+Validate Unsuccessful Login
     [Arguments]     ${username}     ${password}
-    open the browser with the Mortgage payment url
-    Fill the login Form    ${username}      ${password}
-    wait until it checks and display error message
-    verify error message is correct
+    Open Browser To Login Page
+    Fill Login Form                ${username}    ${password}
+    Wait For Error Message
+    Verify Error Message
 
-open the browser with the Mortgage payment url
-    Create Webdriver    Chrome  executable_path=/Users/rahulshetty/Documents/chromedriver
-    Go To   https://rahulshettyacademy.com/loginpagePractise/
+Open Browser To Login Page
+    Create Webdriver    Chrome  executable_path=${CHROME_DRIVER_PATH}
+    Go To               ${LOGIN_URL}
 
-Fill the login Form
-    [arguments]     ${username}     ${password}
-    Input Text          id:username     ${username}
-    Input Password      id:password     ${password}
+Fill Login Form
+    [Arguments]     ${username}     ${password}
+    Input Text          id:username        ${username}
+    Input Password      id:password        ${password}
     Click Button        signInBtn
 
-wait until it checks and display error message
-    Wait Until Element Is Visible       ${Error_Message_Login}
+Wait For Error Message
+    Wait Until Element Is Visible    ${ERROR_MESSAGE_LOCATOR}
 
-verify error message is correct
-   ${result}=   Get Text    ${Error_Message_Login}
-   Should Be Equal As Strings     ${result}     Incorrect username/password.
-   Element Text Should Be       ${Error_Message_Login}      Incorrect username/password.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Verify Error Message
+    Element Text Should Be           ${ERROR_MESSAGE_LOCATOR}    ${EXPECTED_ERROR_MESSAGE}
