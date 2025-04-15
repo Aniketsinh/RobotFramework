@@ -21,7 +21,7 @@ Validate UnSuccesful Login
     open the browser with the Mortgage payment url
     Fill the login Form    ${username}      ${password}
     wait until it checks and display error message
-    verify error message is correct
+    verify error message is correct.
 
 open the browser with the Mortgage payment url
     Create Webdriver    Chrome  executable_path=/Users/rahulshetty/Documents/chromedriver
