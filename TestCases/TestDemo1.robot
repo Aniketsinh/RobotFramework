@@ -1,6 +1,6 @@
 *** Settings ***
 Library     SeleniumLibrary
-#Library     DataDriver
+Library     DataDriver  file=Resources/data.csv
 Test Teardown       Close Browser
 #Test Setup      Open Browser        Chrome
 
