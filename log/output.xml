@@ -1,137 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-28T20:25:19.613940" rpa="false" schemaversion="5">
-<suite id="s1" name="TestDemo4" source="D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo4.robot">
-<test id="s1-t1" name="Invalid username" line="15">
+<robot generator="Robot 6.1.1 (Python 3.12.10 on win32)" generated="20250527 20:48:05.511" rpa="false" schemaversion="4">
+<suite id="s1" name="TestDemo5" source="H:\Automation\Office\RobotFramework\TestCases\TestDemo5.robot">
+<test id="s1-t1" name="Invalid username" line="14">
 <kw name="Validate Unsuccessful Login">
+<arg>disable</arg>
+<arg>learning</arg>
 <kw name="Open Browser To Login Page">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-04-28T20:25:19.888716" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg time="2025-04-28T20:25:19.888716" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-04-28T20:25:19.888716" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
-<arg>Chrome</arg>
-<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
+<kw name="Open Browser" library="SeleniumLibrary">
 <arg>${LOGIN_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.000000"/>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250527 20:48:05.829" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/loginpagePractise/'.</msg>
+<status status="PASS" starttime="20250527 20:48:05.829" endtime="20250527 20:48:08.378"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:05.829" endtime="20250527 20:48:08.378"/>
 </kw>
 <kw name="Fill Login Form">
 <arg>${username}</arg>
 <arg>${password}</arg>
-<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.000000"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:08.378" level="INFO">Typing text 'disable' into text field 'id:username'.</msg>
+<status status="PASS" starttime="20250527 20:48:08.378" endtime="20250527 20:48:08.514"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:08.514" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20250527 20:48:08.567" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20250527 20:48:08.638" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20250527 20:48:08.514" endtime="20250527 20:48:08.638"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:08.638" level="INFO">Clicking button 'signInBtn'.</msg>
+<status status="PASS" starttime="20250527 20:48:08.638" endtime="20250527 20:48:08.721"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:08.378" endtime="20250527 20:48:08.721"/>
 </kw>
 <kw name="Wait For Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.009098"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20250527 20:48:08.721" endtime="20250527 20:48:10.740"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:08.721" endtime="20250527 20:48:10.740"/>
 </kw>
 <kw name="Verify Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.897814" elapsed="0.000000"/>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<arg>${EXPECTED_ERROR_MESSAGE}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20250527 20:48:10.740" level="INFO">Verifying element 'css:.alert-danger' contains exact text 'Incorrect username/password.'.</msg>
+<status status="PASS" starttime="20250527 20:48:10.740" endtime="20250527 20:48:10.774"/>
 </kw>
-<arg>username=disable</arg>
-<arg>password=learning</arg>
-<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.009098">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:10.740" endtime="20250527 20:48:10.774"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<status status="PASS" starttime="20250527 20:48:05.829" endtime="20250527 20:48:10.774"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-28T20:25:19.897814" elapsed="0.000000"/>
+<status status="PASS" starttime="20250527 20:48:10.774" endtime="20250527 20:48:12.911"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.009098">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:05.829" endtime="20250527 20:48:12.911"/>
 </test>
-<test id="s1-t2" name="Invalid password" line="15">
+<test id="s1-t2" name="Invalid password" line="14">
 <kw name="Validate Unsuccessful Login">
+<arg>rahulshetty</arg>
+<arg>passwr</arg>
 <kw name="Open Browser To Login Page">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-04-28T20:25:19.899820" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg time="2025-04-28T20:25:19.899820" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-04-28T20:25:19.899820" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
-<arg>Chrome</arg>
-<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
+<kw name="Open Browser" library="SeleniumLibrary">
 <arg>${LOGIN_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250527 20:48:12.911" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/loginpagePractise/'.</msg>
+<status status="PASS" starttime="20250527 20:48:12.911" endtime="20250527 20:48:15.275"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:12.911" endtime="20250527 20:48:15.276"/>
 </kw>
 <kw name="Fill Login Form">
 <arg>${username}</arg>
 <arg>${password}</arg>
-<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:15.277" level="INFO">Typing text 'rahulshetty' into text field 'id:username'.</msg>
+<status status="PASS" starttime="20250527 20:48:15.277" endtime="20250527 20:48:15.418"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:15.418" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20250527 20:48:15.459" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20250527 20:48:15.533" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20250527 20:48:15.418" endtime="20250527 20:48:15.533"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:15.533" level="INFO">Clicking button 'signInBtn'.</msg>
+<status status="PASS" starttime="20250527 20:48:15.533" endtime="20250527 20:48:15.636"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:15.276" endtime="20250527 20:48:15.636"/>
 </kw>
 <kw name="Wait For Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20250527 20:48:15.636" endtime="20250527 20:48:17.693"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:15.636" endtime="20250527 20:48:17.693"/>
 </kw>
 <kw name="Verify Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<arg>${EXPECTED_ERROR_MESSAGE}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20250527 20:48:17.693" level="INFO">Verifying element 'css:.alert-danger' contains exact text 'Incorrect username/password.'.</msg>
+<status status="PASS" starttime="20250527 20:48:17.693" endtime="20250527 20:48:17.714"/>
 </kw>
-<arg>username=rahulshetty</arg>
-<arg>password=passwr</arg>
-<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:17.693" endtime="20250527 20:48:17.714"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<status status="PASS" starttime="20250527 20:48:12.911" endtime="20250527 20:48:17.714"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+<status status="PASS" starttime="20250527 20:48:17.714" endtime="20250527 20:48:19.889"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:12.911" endtime="20250527 20:48:19.889"/>
 </test>
-<test id="s1-t3" name="special characters" line="15">
+<test id="s1-t3" name="special characters" line="14">
 <kw name="Validate Unsuccessful Login">
+<arg>#%3</arg>
+<arg>learning</arg>
 <kw name="Open Browser To Login Page">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-04-28T20:25:19.902101" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg time="2025-04-28T20:25:19.902101" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-04-28T20:25:19.902101" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
-<arg>Chrome</arg>
-<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
+<kw name="Open Browser" library="SeleniumLibrary">
 <arg>${LOGIN_URL}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20250527 20:48:19.889" level="INFO">Opening browser 'chrome' to base url 'https://rahulshettyacademy.com/loginpagePractise/'.</msg>
+<status status="PASS" starttime="20250527 20:48:19.889" endtime="20250527 20:48:22.234"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:19.889" endtime="20250527 20:48:22.234"/>
 </kw>
 <kw name="Fill Login Form">
 <arg>${username}</arg>
 <arg>${password}</arg>
-<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:22.236" level="INFO">Typing text '#%3' into text field 'id:username'.</msg>
+<status status="PASS" starttime="20250527 20:48:22.235" endtime="20250527 20:48:22.354"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:22.354" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20250527 20:48:22.395" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20250527 20:48:22.473" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20250527 20:48:22.354" endtime="20250527 20:48:22.473"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20250527 20:48:22.473" level="INFO">Clicking button 'signInBtn'.</msg>
+<status status="PASS" starttime="20250527 20:48:22.473" endtime="20250527 20:48:22.561"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:22.234" endtime="20250527 20:48:22.561"/>
 </kw>
 <kw name="Wait For Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20250527 20:48:22.561" endtime="20250527 20:48:24.697"/>
+</kw>
+<status status="PASS" starttime="20250527 20:48:22.561" endtime="20250527 20:48:24.697"/>
 </kw>
 <kw name="Verify Error Message">
-<status status="NOT RUN" start="2025-04-28T20:25:19.904104" elapsed="0.000000"/>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${ERROR_MESSAGE_LOCATOR}</arg>
+<arg>${EXPECTED_ERROR_MESSAGE}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20250527 20:48:24.712" level="INFO">Verifying element 'css:.alert-danger' contains exact text 'Incorrect username/password.'.</msg>
+<status status="PASS" starttime="20250527 20:48:24.712" endtime="20250527 20:48:24.734"/>
 </kw>
-<arg>username=#%3</arg>
-<arg>password=learning</arg>
-<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.002003">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:24.697" endtime="20250527 20:48:24.734"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<status status="PASS" starttime="20250527 20:48:19.889" endtime="20250527 20:48:24.734"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-04-28T20:25:19.904104" elapsed="0.000000"/>
+<status status="PASS" starttime="20250527 20:48:24.734" endtime="20250527 20:48:26.915"/>
 </kw>
-<status status="FAIL" start="2025-04-28T20:25:19.899820" elapsed="0.004284">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+<status status="PASS" starttime="20250527 20:48:19.889" endtime="20250527 20:48:26.917"/>
 </test>
 <doc>To validate the Login form</doc>
-<status status="FAIL" start="2025-04-28T20:25:19.642478" elapsed="0.261626"/>
+<status status="PASS" starttime="20250527 20:48:05.533" endtime="20250527 20:48:26.917"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="3" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="TestDemo4" id="s1" pass="0" fail="3" skip="0">TestDemo4</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="TestDemo5">TestDemo5</stat>
 </suite>
 </statistics>
 <errors>
