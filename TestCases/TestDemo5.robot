@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       To validate the Login form
 Library             SeleniumLibrary
-Library             DataDriver  file=resources/data.csv   dialect=excel
+Library             DataDriver  file=../Resources/data1.csv   dialect=excel
 Test Teardown       Close Browser
 Test Template       Validate Unsuccessful Login
 

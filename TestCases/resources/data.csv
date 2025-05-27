@@ -1,4 +1,0 @@
-*** Test Cases ***,${username},${password}
-Invalid username,disable,learning
-Invalid password,rahulshetty,passwr
-special characters,#%3,learning
