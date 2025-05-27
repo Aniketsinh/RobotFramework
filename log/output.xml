@@ -1,27 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-15T19:33:27.508468" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-28T20:25:19.613940" rpa="false" schemaversion="5">
 <suite id="s1" name="TestDemo4" source="D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo4.robot">
-<test id="s1-t1" name="Login with user ${username} and password ${password}" line="15">
-<status status="FAIL" start="2025-04-15T19:33:28.050636" elapsed="0.004970">Test cannot be empty.</status>
+<test id="s1-t1" name="Invalid username" line="15">
+<kw name="Validate Unsuccessful Login">
+<kw name="Open Browser To Login Page">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-04-28T20:25:19.888716" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-04-28T20:25:19.888716" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-28T20:25:19.888716" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
+<arg>Chrome</arg>
+<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Fill Login Form">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.888716" elapsed="0.009098"/>
+</kw>
+<kw name="Verify Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.897814" elapsed="0.000000"/>
+</kw>
+<arg>username=disable</arg>
+<arg>password=learning</arg>
+<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.009098">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-28T20:25:19.897814" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.888716" elapsed="0.009098">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</test>
+<test id="s1-t2" name="Invalid password" line="15">
+<kw name="Validate Unsuccessful Login">
+<kw name="Open Browser To Login Page">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-04-28T20:25:19.899820" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-04-28T20:25:19.899820" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-28T20:25:19.899820" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
+<arg>Chrome</arg>
+<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Fill Login Form">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+</kw>
+<arg>username=rahulshetty</arg>
+<arg>password=passwr</arg>
+<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-28T20:25:19.899820" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.897814" elapsed="0.002006">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</test>
+<test id="s1-t3" name="special characters" line="15">
+<kw name="Validate Unsuccessful Login">
+<kw name="Open Browser To Login Page">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-04-28T20:25:19.902101" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-04-28T20:25:19.902101" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-28T20:25:19.902101" level="FAIL">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</msg>
+<arg>Chrome</arg>
+<arg>executable_path=${CHROME_DRIVER_PATH}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.000000">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Fill Login Form">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+</kw>
+<kw name="Wait For Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.902101" elapsed="0.000000"/>
+</kw>
+<kw name="Verify Error Message">
+<status status="NOT RUN" start="2025-04-28T20:25:19.904104" elapsed="0.000000"/>
+</kw>
+<arg>username=#%3</arg>
+<arg>password=learning</arg>
+<status status="FAIL" start="2025-04-28T20:25:19.902101" elapsed="0.002003">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-28T20:25:19.904104" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-28T20:25:19.899820" elapsed="0.004284">TypeError: WebDriver.__init__() got an unexpected keyword argument 'executable_path'</status>
 </test>
 <doc>To validate the Login form</doc>
-<status status="FAIL" start="2025-04-15T19:33:27.529158" elapsed="0.527006"/>
+<status status="FAIL" start="2025-04-28T20:25:19.642478" elapsed="0.261626"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="TestDemo4" id="s1" pass="0" fail="1" skip="0">TestDemo4</stat>
+<stat name="TestDemo4" id="s1" pass="0" fail="3" skip="0">TestDemo4</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-15T19:33:28.036931" level="ERROR">[ DataDriver ] Error in robot file:
-  File "D:\Automation\Python Robot\RobotFramework\TestCases\TestDemo4.robot", line 0</msg>
-<msg time="2025-04-15T19:33:28.036931" level="ERROR">In source file:
-  File "D:/Automation/Python Robot/RobotFramework/Resources/data.csv", line 0</msg>
-<msg time="2025-04-15T19:33:28.036931" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ValueError: Unassigned requiered argument detected: ${username}.</msg>
 </errors>
 </robot>

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       To validate the Login form
 Library             SeleniumLibrary
-Library             DataDriver  file=D:/Automation/Python Robot/RobotFramework/Resources/data.csv
+Library             DataDriver  file=D:/Automation/Python Robot/RobotFramework/Resources/data.csv   dialect=excel
 Test Teardown       Close Browser
 Test Template       Validate Unsuccessful Login
 
