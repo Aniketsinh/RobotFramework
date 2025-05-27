@@ -1,24 +1,50 @@
 *** Settings ***
-Library    SeleniumLibrary
-Library    DataDriver  file=Resources/data.csv
-Test Teardown    Close Browser
+Documentation   To validate the Login form
+Library     SeleniumLibrary
+Test Teardown   Close Browser
+
+
+*** Variables ***
+${Error_Message_Login}      css:.alert-danger
+
 
 *** Test Cases ***
-Validate UnSuccessful Login
-    [Template]    Validate Login With Data
+Validate UnSuccesful Login
+    open the browser with the Mortgage payment url
+    Fill the login Form
+    wait until it checks and display error message
+    verify error message is correct
 
 *** Keywords ***
-Validate Login With Data
-    [Arguments]    ${username}    ${password}
-    Open Browser    https://rahulshettyacademy.com/loginpagePractise/    chrome
-    Maximize Browser Window
-    Input Text    id:username    ${username}
-    Input Password    id:password    ${password}
-    Click Element    xpath://label[2]//span[2]
-    Wait Until Element Is Visible    xpath://div[@class='modal-body']
-    Sleep    5
-    Click Element    xpath://button[@id='okayBtn']
-    Wait Until Element Is Not Visible    xpath://div[@class='modal-body'
-    Scroll Element Into View    xpath://input[@id='signInBtn']
-    Sleep    5
-    Click Element    xpath://input[@id='signInBtn'
+open the browser with the Mortgage payment url
+    Create Webdriver    Chrome  executable_path=/Users/rahulshetty/Documents/chromedriver
+    Go To   https://rahulshettyacademy.com/loginpagePractise/
+
+Fill the login Form
+    Input Text          id:username     rahulshettyacademy
+    Input Password      id:password     12345678
+    Click Button        signInBtn
+
+wait until it checks and display error message
+    Wait Until Element Is Visible       ${Error_Message_Login}
+
+verify error message is correct
+   ${result}=   Get Text    ${Error_Message_Login}
+   Should Be Equal As Strings     ${result}     Incorrect username/password.
+   Element Text Should Be       ${Error_Message_Login}      Incorrect username/password.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
