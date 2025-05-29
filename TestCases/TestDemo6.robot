@@ -1,37 +1,127 @@
 *** Settings ***
-Documentation       To validate the Login form
-Library             SeleniumLibrary
-#Library             DataDriver  file=../Resources/data1.csv   dialect=excel
-Test Teardown       Close Browser
-Test Template       Validate Unsuccessful Login
+Documentation   To validate the Login form
+Library     SeleniumLibrary
+Library     Collections
+Library     ../CustomLibraries/Shop.py
+Test Setup      open the browser with the Mortgage payment url
+Test Teardown   Close Browser session
+Resource        ../PO/Generic.robot
+
 
 *** Variables ***
-${LOGIN_URL}                https://rahulshettyacademy.com/loginpagePractise/
-${ERROR_MESSAGE_LOCATOR}    css:.alert-danger
-${EXPECTED_ERROR_MESSAGE}   Incorrect username/password.
+${Error_Message_Login}      css:.alert-danger
+${Shop_page_load}           css:.nav-link
+
 
 *** Test Cases ***
-Login with user ${username} and password ${password}
+Validate UnSuccesful Login
+    #[Tags]      SMOKE
+    Fill the login Form     ${user_name}    ${invalid_password}
+    wait until Element is located in the page     ${Error_Message_Login}
+    verify error message is correct
+
+Validate Cards display in the Shopping Page
+    Fill the login Form     ${user_name}    ${valid_password}
+    wait until Element is located in the page     ${Shop_page_load}
+    Verify Card titles in the Shop page
+    Hello
+    Select the Card     Nokia Edge
+
+
+Select the Form and navigate to Child window
+
+    Fill the Login Details and Login Form
+
 
 *** Keywords ***
-Validate Unsuccessful Login
-    [Arguments]     ${username}     ${password}
-    Open Browser To Login Page
-    Fill Login Form                ${username}    ${password}
-    Wait For Error Message
-    Verify Error Message
+open the browser with the Mortgage payment url
+    Open Browser    https://rahulshettyacademy.com/loginpagePractise/    chrome
+    Maximize Browser Window
 
-Open Browser To Login Page
-    Open Browser    ${LOGIN_URL}    chrome
-
-Fill Login Form
-    [Arguments]     ${username}     ${password}
-    Input Text          id:username        ${username}
-    Input Password      id:password        ${password}
+Fill the login Form
+    [arguments]     ${username}     ${password}
+    Input Text          id:username     ${username}
+    Input Password      id:password     ${password}
     Click Button        signInBtn
 
-Wait For Error Message
-    Wait Until Element Is Visible    ${ERROR_MESSAGE_LOCATOR}
 
-Verify Error Message
-    Element Text Should Be           ${ERROR_MESSAGE_LOCATOR}    ${EXPECTED_ERROR_MESSAGE}
+wait until Element is located in the page
+    [arguments]     ${element}
+    Wait Until Element Is Visible       ${element}
+
+
+verify error message is correct
+   ${result}=   Get Text    ${Error_Message_Login}
+   Should Be Equal As Strings     ${result}     Incorrect username/password.
+   Element Text Should Be       ${Error_Message_Login}      Incorrect username/password.
+
+Verify Card titles in the Shop page
+   @{expectedList} =    Create List     iphone X    Samsung Note 8      Nokia Edge       Blackberry
+   ${elements} =  Get WebElements     css:.card-title
+   @{actualList} =   Create List
+   FOR  ${element}  IN      @{elements}
+      Log   ${element.text}
+      Append To List    ${actualList}     ${element.text}
+   END
+   Lists Should Be Equal   ${expectedList}    ${actualList}
+
+
+Select the Card
+    [arguments]     ${cardName}
+    ${elements} =  Get WebElements     css:.card-title
+    ${index}=   Set Variable    1
+     FOR  ${element}  IN      @{elements}
+         Exit For Loop If      '${cardName}' == '${element.text}'
+         ${index}=  Evaluate   ${index} + 1
+     END
+    Click Button    xpath:(//*[@class='card-footer'])[${index}]/button
+
+
+Fill the Login Details and Login Form
+
+    Input Text          id:username     rahulshettyacademy
+    Input Password      id:password     learning
+    Click Element       css:input[value='user']
+    Wait Until Element Is Visible       css:.modal-body
+    Click Button        id:okayBtn
+    Click Button        id:okayBtn
+    Wait Until Element Is Not Visible   css:.modal-body
+    Select From List By Value       css:select.form-control       teach
+    Select Checkbox     terms
+    Checkbox Should Be Selected     terms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

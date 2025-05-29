@@ -1,11 +1,5 @@
+# D:\Automation\Python Robot\RobotFramework\CustomLibraries\Shop.py
 
-class Shop():
-
-    def __init__(self):
-
-
-        #method name will be converted to keyword name
-        def hello_world(self):
-         print("hello")
-
-
+class Shop:
+    def hello(self):
+        print("Hello from Shop Library")
