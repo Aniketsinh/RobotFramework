@@ -11,7 +11,7 @@ Resource        ../PO/Generic.robot
 *** Variables ***
 ${Error_Message_Login}      css:.alert-danger
 ${Shop_page_load}           css:.nav-link
-
+@{lISTOFpRODUCTS}           iphone X    Samsung Note 8      Nokia Edge       Blackberry
 
 *** Test Cases ***
 Validate UnSuccesful Login
@@ -20,11 +20,13 @@ Validate UnSuccesful Login
     wait until Element is located in the page     ${Error_Message_Login}
     verify error message is correct
 
+
 Validate Cards display in the Shopping Page
     Fill the login Form     ${user_name}    ${valid_password}
     wait until Element is located in the page     ${Shop_page_load}
     Verify Card titles in the Shop page
     Hello
+    Add To Cart And Checkout    @{lISTOFpRODUCTS}
     Select the Card     Nokia Edge
 
 
